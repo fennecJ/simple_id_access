@@ -2,24 +2,31 @@
 
 $(document).ready(function() {
 var refresh = document.getElementById('GSD'); 
+var opened=false;
 $('#GSD').click(function(){
 $.post('/gsi',{},function(data){
     var j=JSON.stringify(data,null,2);
     j=j.replace('{','');
     j=j.replace('}','');
-    //$('#ajax-output').html(JSON.parse(j));
-
     $('#GSD-output').html(j);
+    opened=true;
 });
 });
 
 $('#FSD').click( event =>{
     event.preventDefault()
+    var a = $('#fsdata input[name=sid]').val().toString().replaceAll(/\s/g,'');
+    if((a==''))
+    alert('表單資料不能為空');
+
+else{
     $.get('/fsd',{
     sid: $('#fsdata input[name=sid]').val()
 }, (data)=>{
         $('#FSD-output').html(data);
 })
+}
+
 })
 
 $('#ASD').click( event =>{
@@ -34,6 +41,7 @@ else{
     sname: $('#sdata input[name=sname]').val()
 },(data)=>{
     $('#ASD-output').html(data);
+    if(opened)
     refresh.click();
 }
 )
@@ -45,13 +53,22 @@ else{
 
 $('#DSD').click( event =>{
     event.preventDefault()
+    var a = $('#dsdata input[name=sid]').val().toString().replaceAll(/\s/g,'');
+    if((a==''))
+    alert('表單資料不能為空');
+
+else{
     $.get('/dsd',{
     sid: $('#dsdata input[name=sid]').val()
 },(data)=>{
-    refresh.click();
-    $('#DSD-output').html(data);
 
+    $('#DSD-output').html(data);
+    if(opened)
+    refresh.click();
 })
+}
+
+
 })
 
 
