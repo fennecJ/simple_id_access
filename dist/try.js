@@ -32,6 +32,8 @@ $(document).ready(function() {
 $('#GSD').click(function(){
 $.post('/gsi',{},function(data){
     var j=JSON.stringify(data,null,2);
+    j=j.replace('{','');
+    j=j.replace('}','');
     //$('#ajax-output').html(JSON.parse(j));
 
     $('#ajax-output').html(j);
