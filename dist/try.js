@@ -27,7 +27,7 @@ $.get('./step5', {
 })
 
 });
-
+$(document).ready(function() {
 
 $('#GSD').click(function(){
 $.post('/gsi',{},function(data){
@@ -37,7 +37,7 @@ $.post('/gsi',{},function(data){
     $('#ajax-output').html(j);
 });
 });
-$(document).ready(function() {
+
 $('#FSD').click( event =>{
     event.preventDefault()
     $.get('/fsd',{
@@ -46,5 +46,15 @@ $('#FSD').click( event =>{
         $('#ajax-output').html(data);
 })
 })
+
+$('#ASD').click( event =>{
+    event.preventDefault()
+    $.get('/asd',{
+    sid: $('#sdata input[name=sid]').val(),
+    sname: $('#sdata input[name=sname]').val()
+})
+})
+
+
 
 })

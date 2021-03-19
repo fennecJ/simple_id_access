@@ -3,6 +3,7 @@
  const port = 31254 // change the port number
  const bodyParser = require('body-parser')
  var fs = require('fs')
+const { table } = require('console')
  app.use(bodyParser.urlencoded({ extended: false }))
  app.use(express.static(`${__dirname}/dist`))
  app.listen(port, () => {
@@ -33,6 +34,34 @@ app.get('/fsd',(req,res)=>{
     
  }
 )
+
+
+app.get('/asd',(req,res)=>{
+    var sid =`${req.query.sid}`;
+    var sname = `${req.query.sname}`;
+    var obj = {
+        
+    };
+    obj[sid]=sname;
+    obj=JSON.stringify(obj);
+    console.log(obj);
+    
+    fs.readFile('students.json', (err, data) => {
+        
+        let json = JSON.parse(data);
+        json[sid]=sname;
+        fs.writeFile("students.json", JSON.stringify(json), function(err){
+            if (err) throw err;
+            console.log('The "data to append" was appended to file!');
+         });
+        console.log(json);
+
+
+    });
+   
+ }
+)
+
 
 /*
  app.post('/fsd',(req,res)=>{
