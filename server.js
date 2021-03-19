@@ -72,6 +72,7 @@ app.get('/dsd',(req,res)=>{
         fs.writeFile("students.json", JSON.stringify(json), function(err){
             if (err) throw err;
             console.log('Delete '+sid);
+            res.send('Delete '+sid);
          });
         console.log(json);
 

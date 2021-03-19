@@ -61,6 +61,10 @@ $('#DSD').click( event =>{
     event.preventDefault()
     $.get('/dsd',{
     sid: $('#dsdata input[name=sid]').val()
+},(data)=>{
+
+    $('#ajax-output').html(data);
+
 })
 })
 
