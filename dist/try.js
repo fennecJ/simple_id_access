@@ -55,6 +55,12 @@ $('#ASD').click( event =>{
 })
 })
 
+$('#DSD').click( event =>{
+    event.preventDefault()
+    $.get('/dsd',{
+    sid: $('#dsdata input[name=sid]').val()
+})
+})
 
 
 })

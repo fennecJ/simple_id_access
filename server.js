@@ -62,7 +62,24 @@ app.get('/asd',(req,res)=>{
  }
 )
 
+app.get('/dsd',(req,res)=>{
+    var sid =`${req.query.sid}`;
+    var obj = {
+    };
+    fs.readFile('students.json', (err, data) => {
+        let json = JSON.parse(data);
+        delete json[sid];
+        fs.writeFile("students.json", JSON.stringify(json), function(err){
+            if (err) throw err;
+            console.log('Delete '+sid);
+         });
+        console.log(json);
 
+
+    });
+   
+ }
+)
 /*
  app.post('/fsd',(req,res)=>{
     fs.readFile('students.json', (err, data) => {
