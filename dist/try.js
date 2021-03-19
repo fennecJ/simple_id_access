@@ -59,6 +59,9 @@ fs.readFile('students.json', 'utf8', function readFileCallback(err, data){
 
 $('#GSD').click(function(){
 $.post('/gsi',{},function(data){
-    $('#ajax-output').html(JSON.stringify(data));
+    var j=JSON.stringify(data,null,2);
+    //$('#ajax-output').html(JSON.parse(j));
+
+    $('#ajax-output').html(j);
 });
 });
