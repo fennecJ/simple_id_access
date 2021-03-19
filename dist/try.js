@@ -24,6 +24,11 @@ $('#FSD').click( event =>{
 
 $('#ASD').click( event =>{
     event.preventDefault()
+    var a = $('#sdata input[name=sid]').val().toString().replaceAll(/\s/g,'');
+    var b = $('#sdata input[name=sname]').val().toString().replaceAll(/\s/g,'');
+    if((a=='')||(b==""))
+    alert('表單資料不能為空');
+else{
     $.get('/asd',{
     sid: $('#sdata input[name=sid]').val(),
     sname: $('#sdata input[name=sname]').val()
@@ -31,7 +36,11 @@ $('#ASD').click( event =>{
     $('#ajax-output').html(data);
 }
 )
-})
+}
+
+}
+
+)
 
 $('#DSD').click( event =>{
     event.preventDefault()
