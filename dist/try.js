@@ -1,7 +1,7 @@
 
 
 $(document).ready(function() {
-
+var refresh = document.getElementById('GSD'); 
 $('#GSD').click(function(){
 $.post('/gsi',{},function(data){
     var j=JSON.stringify(data,null,2);
@@ -9,7 +9,7 @@ $.post('/gsi',{},function(data){
     j=j.replace('}','');
     //$('#ajax-output').html(JSON.parse(j));
 
-    $('#ajax-output').html(j);
+    $('#GSD-output').html(j);
 });
 });
 
@@ -18,7 +18,7 @@ $('#FSD').click( event =>{
     $.get('/fsd',{
     sid: $('#fsdata input[name=sid]').val()
 }, (data)=>{
-        $('#ajax-output').html(data);
+        $('#FSD-output').html(data);
 })
 })
 
@@ -33,7 +33,8 @@ else{
     sid: $('#sdata input[name=sid]').val(),
     sname: $('#sdata input[name=sname]').val()
 },(data)=>{
-    $('#ajax-output').html(data);
+    $('#ASD-output').html(data);
+    refresh.click();
 }
 )
 }
@@ -47,8 +48,8 @@ $('#DSD').click( event =>{
     $.get('/dsd',{
     sid: $('#dsdata input[name=sid]').val()
 },(data)=>{
-
-    $('#ajax-output').html(data);
+    refresh.click();
+    $('#DSD-output').html(data);
 
 })
 })
