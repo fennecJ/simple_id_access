@@ -52,13 +52,12 @@ app.get('/asd',(req,res)=>{
         json[sid]=sname;
         fs.writeFile("students.json", JSON.stringify(json), function(err){
             if (err) throw err;
-            console.log('The "data to append" was appended to file!');
+            console.log(sid+' '+sname+' was appended to file!');
+            res.send('Add '+sid+' '+sname);
          });
         console.log(json);
 
-
     });
-   
  }
 )
 
@@ -68,11 +67,12 @@ app.get('/dsd',(req,res)=>{
     };
     fs.readFile('students.json', (err, data) => {
         let json = JSON.parse(data);
+        var tmp = json[sid];
         delete json[sid];
         fs.writeFile("students.json", JSON.stringify(json), function(err){
             if (err) throw err;
             console.log('Delete '+sid);
-            res.send('Delete '+sid);
+            res.send('Delete '+sid+' '+tmp);
          });
         console.log(json);
 

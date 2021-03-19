@@ -54,7 +54,10 @@ $('#ASD').click( event =>{
     $.get('/asd',{
     sid: $('#sdata input[name=sid]').val(),
     sname: $('#sdata input[name=sname]').val()
-})
+},(data)=>{
+    $('#ajax-output').html(data);
+}
+)
 })
 
 $('#DSD').click( event =>{
