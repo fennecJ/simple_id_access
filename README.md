@@ -16,12 +16,12 @@ $ npm i express jquery --save
 # Change the port value you like in server.js
 Open server.js via in any eeditor you like, you can change the port in `3rd line.`
 
-#Open server
+# Open server
 ```
 $ node ./ser.js
 ```
 
-#Try the website
+# Try the page you set
 Open any browser and type
 http://localhost:`The port you set before`
 If you don's change the port in `server.js`, you can type
