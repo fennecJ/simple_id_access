@@ -23,7 +23,7 @@ $ node ./ser.js
 
 # Try the page you set
 Open any browser and type
-http://localhost:`The port you set before`
+http://localhost: `The port you set before`
 If you don's change the port in `server.js`, you can type
 http://localhost:31254
 
