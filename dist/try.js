@@ -87,4 +87,5 @@ function containSpecial( s )
   var containSpecial = RegExp(/[(\{)(\})(\\)(\")(\()(\))]/);      
   //var containSpecial = RegExp(/[(\ )(\~)(\!)(\@)(\#)(\$)(\%)(\^)(\&)(\*)(\()(\))(\-)(\_)(\+)(\=)(\[)(\])(\{)(\})(\|)(\\)(\;)(\:)(\')(\")(\,)(\.)(\/)(\<)(\>)(\?)(\)]+/);      
  return ( containSpecial.test(s) );
+ //return 0;
 }
