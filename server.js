@@ -29,7 +29,10 @@ app.get('/fsd',(req,res)=>{
     fs.readFile('students.json', (err, data) => {
         if (err) throw err;
         let tmp=JSON.parse(data);
+        if(tmp.hasOwnProperty(t))
         res.send(`Hello, `+tmp[t]);
+        else
+        res.send('抱歉，朋友<br>明明承諾過不會忘的，明明應該記得的，但我就是想不起來你是誰...<br>給我一個機會，讓我重新認識你，好嗎 :)');
     });
     
  }
@@ -49,13 +52,20 @@ app.get('/asd',(req,res)=>{
     fs.readFile('students.json', (err, data) => {
         
         let json = JSON.parse(data);
+
+        if(json.hasOwnProperty(sid)){
+
+            res.send('抱歉，'+ json[sid]+'，我已經記得你另一個名字了。<br>什麼，你想要改名?你應該知道壽司郎的活動已經截止了吧?<br>若你希望重新來過，請先刪除我原有的記憶 :)');
+        }
+        else{
         json[sid]=sname;
         fs.writeFile("students.json", JSON.stringify(json), function(err){
             if (err) throw err;
-            console.log(sid+' '+sname+' was appended to file!');
-            res.send('Add '+sid+' '+sname);
+            console.log(sid+' '+sname+' was add to file!');
+            res.send(sid+' '+sname+'嗎... 是個好名字呢!');
          });
-        console.log(json);
+        }
+        
 
     });
  }
@@ -67,14 +77,19 @@ app.get('/dsd',(req,res)=>{
     };
     fs.readFile('students.json', (err, data) => {
         let json = JSON.parse(data);
-        var tmp = json[sid];
-        delete json[sid];
+
+        if(json.hasOwnProperty(sid)){
+            var tmp = json[sid];
+            delete json[sid];
         fs.writeFile("students.json", JSON.stringify(json), function(err){
             if (err) throw err;
-            console.log('Delete '+sid);
-            res.send('Delete '+sid+' '+tmp);
+            res.send('再見了 '+sid+' '+tmp);
          });
-        console.log(json);
+        }
+        else {
+            res.send('真有趣，你希望我忘記一個從未存在的事物?');
+        }
+
 
 
     });
