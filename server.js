@@ -36,7 +36,7 @@ app.get('/fsd',(req,res)=>{
        if(tmp.hasOwnProperty(t))
        res.send(`Hello, `+tmp[t]);
        else
-       res.send('抱歉，朋友<br>明明承諾過不會忘的，明明應該記得的，但我就是想不起來你是誰...<br>給我一個機會，讓我重新認識你，好嗎 :)');
+       res.send('哇！ 是新朋友！<br>介意告訴我你的名字嗎?');
    });
 }
 }
