@@ -3,12 +3,13 @@ The main point of this page is using http and javascript so that you can change 
 You can add/delete/find/list all data in `students.json`
 
 # how to run it ?
-You can get needed  packages from yarn.
+Your enviroment need to install either npm or yarn first.
+Then you can get needed packages from yarn.
 ```
 $ yarn init -y
 $ yarn add express jquery
 ```
-If you can't run yarn on your computer, try using npm.
+Or using npm.
 ```
 $ npm init -y
 $ npm i express jquery --save
