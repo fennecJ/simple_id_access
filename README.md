@@ -15,7 +15,7 @@ $ npm init -y
 $ npm i express jquery --save
 ```
 # Change the port value you like in server.js
-Open server.js via in any eeditor you like, you can change the port in `3rd line.`
+Open server.js via in any editor you like, you can change the port in `3rd line.`
 
 # Open server
 ```
