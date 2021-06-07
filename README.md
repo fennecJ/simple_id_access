@@ -1,5 +1,5 @@
 # A simple id system based on Node.js+Jquery
-The main point of this page is that you can change some content in  the page without refreshing the browser.
+The main point of this page is using http and javascript so that you can change some content in the page without refreshing the browser.
 You can add/delete/find/list all data in `students.json`
 
 # how to run it ?
