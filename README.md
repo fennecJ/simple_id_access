@@ -19,7 +19,7 @@ Open server.js via in any editor you like, you can change the port in `3rd line.
 
 # Open server
 ```
-$ node ./ser.js
+$ node ./server.js
 ```
 
 # Try the page you set
